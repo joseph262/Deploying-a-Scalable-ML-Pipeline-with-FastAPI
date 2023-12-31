@@ -2,13 +2,21 @@ import json
 
 import requests
 
-# TODO: send a GET using the URL http://127.0.0.1:8000
-r = # Your code here
+# Send a GET request
+url = "http://127.0.0.1:8000"
+r = requests.get(url)
 
-# TODO: print the status code
-# print()
-# TODO: print the welcome message
-# print()
+
+print("Status Code:", r.status_code)
+
+
+# Print the welcome message if the response contains JSON data
+try:
+    data = r.json()
+    if "message" in data:
+        print("Welcome Message:", data["message"])
+except json.JSONDecodeError:
+    print("Response does not contain JSON data.")
 
 
 
@@ -29,10 +37,16 @@ data = {
     "native-country": "United-States",
 }
 
-# TODO: send a POST using the data above
-r = # Your code here
+# Send a POST request
+url = "http://127.0.0.1:8000"
+r = requests.post(url, json=data)
 
-# TODO: print the status code
-# print()
-# TODO: print the result
-# print()
+
+# Print the status code
+print("Status Code:", r.status_code)
+# Print the result if the response contains JSON data
+try:
+    result_data = r.json()
+    print("Result:", result_data)
+except json.JSONDecodeError:
+    print("Response does not contain JSON data.")
