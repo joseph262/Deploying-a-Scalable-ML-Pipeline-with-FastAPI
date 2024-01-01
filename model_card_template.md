@@ -1,29 +1,35 @@
-Model Card for Census Income Prediction Model
 Model Details
 
     Developer: Joseph Swiderski
     Model Date: April 2023
     Model Version: 1.0
     Model Type: Random Forest Classifier
-    Code: GitHub Repository
+    Code Availability: Available on GitHub Repository
 
 Intended Use
 
-    Primary Use: This model is intended for socioeconomic research, specifically to predict the likelihood of individuals earning more than $50K per year based on census data.
-    Intended Users: Researchers, Economists, Policy Makers
-    Out-of-scope Use Cases: This model is not intended for use in individual-level decision-making processes like hiring, lending, or eligibility for programs/benefits.
+    Primary Use:
+        For socioeconomic research, aimed at predicting the probability of individuals earning over $50K annually based on census data.
+    Intended Users:
+        Targeted at Researchers, Economists, and Policy Makers.
+    Out-of-scope Use Cases:
+        Not recommended for individual-level decisions such as hiring, lending, or determining program/benefit eligibility.
 
 Training Data
 
     Dataset Name: UCI Adult Census Income Dataset
     Source: UCI Machine Learning Repository
-    Description: The dataset contains approximately 32,561 instances with 14 attributes, including age, work class, education, occupation, and race. The target attribute is a binary variable indicating whether the individual's income exceeds $50K per year.
+    Description:
+        The dataset includes around 32,561 instances with 14 attributes, including age, work class, education, etc. The key target attribute is income exceeding $50K per year.
 
 Evaluation Data
 
     Dataset Name: UCI Adult Census Income Dataset (Split for Testing)
     Source: UCI Machine Learning Repository
-    Description: The evaluation data is a subset of the UCI Adult Census Income Dataset, specifically set aside for testing the model. It consists of a stratified sample maintaining the overall distribution of the full dataset.
+    Description:
+        This is a subset of the main dataset, specifically reserved for testing the model. It represents a stratified sample.
+    Evaluation Data Percentage:
+        The percentage of data used for evaluation is 80% training and 20% testing.
 
 Metrics
 
@@ -36,6 +42,18 @@ Metrics
 
 Ethical Considerations
 
-    Fairness and Bias: Analysis indicates potential biases in prediction based on race and gender, inherent in the training data. Caution should be exercised in interpreting the results.
-    Privacy: The dataset used is anonymized and publicly available, ensuring no personal information is disclosed.
+    Fairness and Bias:
+        There is evidence of potential biases based on race and gender in the predictions, reflecting the training data's inherent biases.
+    Privacy:
+        The dataset is anonymized and publicly accessible, safeguarding personal information.
 
+Caveats and Recommendations
+
+    Model Limitations:
+        The model's predictions are based on historical data, which may not accurately represent current or future trends.
+        Bias in the data can lead to skewed predictions, particularly affecting underrepresented groups.
+    Usage Recommendations:
+        Users should interpret the model's predictions in the context of its limitations and inherent biases.
+      
+        Regular updates and re-evaluations of the model are recommended to ensure its relevance and accuracy.
+        
