@@ -38,7 +38,7 @@ app = FastAPI()
 # GET request at the root
 @app.get("/")
 async def get_root():
-    return {"message": "Say hello!!"}
+    return {"message": "Hello from the API!"}
 
 
 # POST request for model inference
