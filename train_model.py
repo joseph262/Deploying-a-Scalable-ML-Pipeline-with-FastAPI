@@ -13,7 +13,7 @@ from ml.model import (
     train_model,
 )
 # TODO: load the cencus.csv data
-project_path = ""
+project_path = "."
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
 data = pd.read_csv(data_path)
@@ -62,8 +62,7 @@ save_model(encoder, encoder_path)
 
 # load the model
 model = load_model(
-    model_path
-) 
+    model_path)
 
 # Run the model inferences on the test dataset
 preds = inference(model, X_test)
@@ -78,8 +77,11 @@ with open(output_file, "w") as f:  # Using 'w' to overwrite if exists
     for col in cat_features:
         for slice_value in sorted(test[col].unique()):
             p, r, fb = performance_on_categorical_slice(
-                test, col, slice_value, cat_features, "salary", encoder, lb, model
+                test, col, slice_value, cat_features,
+                "salary", encoder, lb, model
             )
+
             count = test[test[col] == slice_value].shape[0]
             print(f"{col}: {slice_value}, Count: {count:,}", file=f)
-            print(f"Precision: {p:.4f} | Recall: {r:.4f} | F1: {fb:.4f}\n", file=f)
+print(f"Precision: {p:.4f} | Recall: {r:.4f} | F1: {fb:.4f}\n",
+      file=f)
