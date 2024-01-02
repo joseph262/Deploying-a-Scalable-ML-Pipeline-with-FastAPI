@@ -18,8 +18,6 @@ try:
 except json.JSONDecodeError:
     print("Response does not contain JSON data.")
 
-
-
 data = {
     "age": 37,
     "workclass": "Private",
@@ -35,7 +33,7 @@ data = {
     "capital-loss": 0,
     "hours-per-week": 40,
     "native-country": "United-States",
-}
+    }
 
 # Send a POST request
 url = "http://127.0.0.1:8000/data/"
