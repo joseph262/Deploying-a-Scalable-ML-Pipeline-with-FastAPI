@@ -1,26 +1,30 @@
-name: Python CI
+name: Pytest 
 
-on:
-push:
-   branches: [ main, master ]
+on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
 
-    strategy:
-      matrix:
-        python-version: [3.9]  # Replace with your Python version
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
+
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: '3.8'  # Adjust the version as needed
+
     - name: Install dependencies
       run: |
-        pip install pytest
-        pip install -r requirements.txt
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
     - name: Run pytest
-      run: pytest
+      run: |
+        pytest
+   
+    - name: Run Flake8
+      run: |
+        pip install flake8
+        flake8 .
